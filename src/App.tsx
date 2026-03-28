@@ -32,15 +32,15 @@ function AnimatedRoutes() {
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
         {/* Public routes */}
-        <Route path="/hub-app/" element={<Landing />} />
-        <Route path="/hub-app/login" element={<Login />} />
+        <Route path="/" element={<Landing />} />
+        <Route path="/login" element={<Login />} />
 
         {/* Protected routes with layout */}
         <Route element={<AppLayout />}>
-          <Route path="/hub-app/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
-          <Route path="/hub-app/leaderboard" element={<ProtectedRoute><Leaderboard /></ProtectedRoute>} />
-          <Route path="/hub-app/calendar" element={<ProtectedRoute><CalendarPage /></ProtectedRoute>} />
-          <Route path="/hub-app/fleet" element={<ProtectedRoute><Fleet /></ProtectedRoute>} />
+          <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+          <Route path="/leaderboard" element={<ProtectedRoute><Leaderboard /></ProtectedRoute>} />
+          <Route path="/calendar" element={<ProtectedRoute><CalendarPage /></ProtectedRoute>} />
+          <Route path="/fleet" element={<ProtectedRoute><Fleet /></ProtectedRoute>} />
         </Route>
       </Routes>
     </AnimatePresence>

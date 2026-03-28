@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useAuth } from '@/hooks/useAuth';
 import { useFleetStats, usePersonalStats, useWeeklyData } from '@/hooks/useFleetStats';
 import { GlassCard, StatCard, MiniStat } from '@/components/layout/GlassCard';
@@ -5,7 +6,7 @@ import { motion } from 'framer-motion';
 import {
   MapPin, DollarSign, Users, Package, Trophy, Activity,
   Gauge, Route, Fuel, TrendingUp, Truck, ShieldAlert,
-  Link
+  Link as LinkIcon
 } from 'lucide-react';
 import {
   AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip,
@@ -214,7 +215,7 @@ export default function Dashboard() {
         <GlassCard className="lg:col-span-2 border-white/5">
           <div className="flex items-center justify-between mb-6">
             <h3 className="text-sm font-heading font-bold uppercase tracking-tight">Vanguard Operatives</h3>
-            <Link to="/hub-app/leaderboard" className="text-[10px] font-black text-[#70eeff] hover:glow-cyan px-2 py-1 border border-[#70eeff]/20 rounded transition-all">VIEW_GLOBAL_RANKINGS</Link>
+            <Link to="/leaderboard" className="text-[10px] font-black text-[#70eeff] hover:glow-cyan px-2 py-1 border border-[#70eeff]/20 rounded transition-all">VIEW_GLOBAL_RANKINGS</Link>
           </div>
           <div className="space-y-2 max-h-[260px] overflow-y-auto pr-2 custom-scrollbar">
             {leaderboard.length === 0 ? (

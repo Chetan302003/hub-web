@@ -144,7 +144,7 @@ export default function Landing() {
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
             <Link
-              to={user ? "/hub-app/dashboard" : "/hub-app/login"}
+              to={user ? "/dashboard" : "/login"}
               className="btn-primary px-10 py-4 rounded-xl text-lg flex items-center gap-3 transition-all"
             >
               {user ? "Enter Hub Dashboard" : "Login to Terminal"}

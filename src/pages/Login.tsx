@@ -18,7 +18,7 @@ export default function Login() {
   const [success, setSuccess] = useState('');
 
   if (user) {
-    navigate('/hub-app/dashboard', { replace: true });
+    navigate('/dashboard', { replace: true });
     return null;
   }
 
@@ -46,7 +46,7 @@ export default function Login() {
         if (error) {
           setError(error.message);
         } else {
-          navigate('/hub-app/dashboard', { replace: true });
+          navigate('/dashboard', { replace: true });
         }
       }
     } catch (err: any) {
@@ -70,7 +70,7 @@ export default function Login() {
         className="w-full max-w-md relative z-10"
       >
         <Link
-          to="/hub-app/"
+          to="/"
           className="inline-flex items-center gap-2 text-[#70eeff]/60 hover:text-[#70eeff] text-[10px] font-black uppercase tracking-[0.2em] mb-8 transition-colors group"
         >
           <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" />

@@ -1,8 +1,8 @@
 {
   "rewrites": [
     {
-      "source": "/hub-app/(.*)",
-      "destination": "/hub-app/index.html"
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }
