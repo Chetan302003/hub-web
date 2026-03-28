@@ -3,7 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '@/hooks/useAuth';
 import { GlassCard } from '@/components/layout/GlassCard';
 import { motion } from 'framer-motion';
-import { LogIn, UserPlus, Mail, Lock, User, Hash, ArrowLeft, Truck, AlertCircle, ShieldCheck } from 'lucide-react';
+import { LogIn, UserPlus, Mail, Lock, Eye, EyeOff, User, Hash, ArrowLeft, Truck, AlertCircle, ShieldCheck } from 'lucide-react';
 
 export default function Login() {
   const { signIn, signUp, user } = useAuth();
@@ -16,6 +16,7 @@ export default function Login() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
 
   if (user) {
     navigate('/dashboard', { replace: true });
@@ -127,7 +128,7 @@ export default function Login() {
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
                         placeholder="OPERATOR_NAME"
-                        className="w-full pl-12 pr-4 py-3.5 rounded-xl bg-black/40 border border-white/5 text-foreground placeholder:text-muted-foreground/30 focus:outline-none focus:ring-1 focus:ring-[#70eeff]/50 focus:border-[#70eeff]/50 transition-all text-sm font-heading font-bold uppercase"
+                        className="w-full pl-12 pr-4 py-3.5 rounded-xl bg-black/40 border border-white/5 text-foreground placeholder:text-muted-foreground/30 focus:outline-none focus:ring-1 focus:ring-[#70eeff]/50 focus:border-[#70eeff]/50 transition-all text-sm font-heading font-bold"
                         required
                       />
                     </div>
@@ -158,7 +159,7 @@ export default function Login() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="SIGNAL@AURA-HUB.NET"
-                    className="w-full pl-12 pr-4 py-3.5 rounded-xl bg-black/40 border border-white/5 text-foreground placeholder:text-muted-foreground/30 focus:outline-none focus:ring-1 focus:ring-[#70eeff]/50 focus:border-[#70eeff]/50 transition-all text-sm font-heading font-bold uppercase"
+                    className="w-full pl-12 pr-4 py-3.5 rounded-xl bg-black/40 border border-white/5 text-foreground placeholder:text-muted-foreground/30 focus:outline-none focus:ring-1 focus:ring-[#70eeff]/50 focus:border-[#70eeff]/50 transition-all text-sm font-heading font-bold"
                     required
                   />
                 </div>
@@ -166,18 +167,25 @@ export default function Login() {
 
               <div className="space-y-1.5">
                 <label className="text-[10px] font-black text-muted-foreground uppercase tracking-widest ml-1">Access Protocol (Password)</label>
-                <div className="relative">
-                  <Lock size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" />
-                  <input
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    placeholder="••••••••"
-                    className="w-full pl-12 pr-4 py-3.5 rounded-xl bg-black/40 border border-white/5 text-foreground placeholder:text-muted-foreground/30 focus:outline-none focus:ring-1 focus:ring-[#70eeff]/50 focus:border-[#70eeff]/50 transition-all text-sm font-heading font-bold"
-                    required
-                    minLength={6}
-                  />
-                </div>
+                  <div className="relative">
+                    <Lock size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" />
+                    <input
+                      type={showPassword ? 'text' : 'password'}
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      placeholder="••••••••"
+                      className="w-full pl-12 pr-12 py-3.5 rounded-xl bg-black/40 border border-white/5 text-foreground placeholder:text-muted-foreground/30 focus:outline-none focus:ring-1 focus:ring-[#70eeff]/50 focus:border-[#70eeff]/50 transition-all text-sm font-heading font-bold"
+                      required
+                      minLength={6}
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setShowPassword(!showPassword)}
+                      className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-[#70eeff] transition-colors"
+                    >
+                      {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+                    </button>
+                  </div>
               </div>
 
               <button

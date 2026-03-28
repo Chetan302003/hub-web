@@ -11,6 +11,7 @@ import Dashboard from '@/pages/Dashboard';
 import Leaderboard from '@/pages/Leaderboard';
 import CalendarPage from '@/pages/Calendar';
 import Fleet from '@/pages/Fleet';
+import MyStats from '@/pages/MyStats';
 
 const queryClient = new QueryClient();
 
@@ -41,6 +42,7 @@ function AnimatedRoutes() {
           <Route path="/leaderboard" element={<ProtectedRoute><Leaderboard /></ProtectedRoute>} />
           <Route path="/calendar" element={<ProtectedRoute><CalendarPage /></ProtectedRoute>} />
           <Route path="/fleet" element={<ProtectedRoute><Fleet /></ProtectedRoute>} />
+          <Route path="/stats" element={<ProtectedRoute><MyStats /></ProtectedRoute>} />
         </Route>
       </Routes>
     </AnimatePresence>

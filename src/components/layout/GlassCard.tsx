@@ -25,7 +25,8 @@ export function StatCard({
   icon: Icon, 
   color = 'cyan',
   trend,
-  prefix
+  prefix,
+  suffix
 }: { 
   label: string; 
   value: string | number | ReactNode; 
@@ -33,6 +34,7 @@ export function StatCard({
   color?: 'cyan' | 'green' | 'amber' | 'purple' | 'rose';
   trend?: { value: string; isPositive: boolean };
   prefix?: string;
+  suffix?: string;
 }) {
   const colorMap = {
     cyan: 'text-[#70eeff] shadow-[#70eeff]/20',
@@ -75,7 +77,7 @@ export function StatCard({
       <div className="space-y-1">
         <p className="text-muted-foreground text-xs font-semibold uppercase tracking-wider">{label}</p>
         <div className={cn("text-2xl font-heading font-bold tabular-nums", colorMap[color])}>
-          {prefix}{value}
+          {prefix}{value}{suffix}
         </div>
       </div>
     </GlassCard>
