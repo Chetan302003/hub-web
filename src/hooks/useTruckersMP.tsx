@@ -40,7 +40,7 @@ export function useTruckersMP() {
 
   const getVTCEvents = useCallback(async () => {
     try {
-      const response = await fetch('https://api.truckersmp.com/v2/vtc/52096/events');
+      const response = await fetch('https://api.truckersmp.com/v2/vtc/75200/events');
       const data = await response.json();
       return data.response || [];
     } catch (error) {

@@ -60,7 +60,7 @@
 
 @layer components {
   .glass-card {
-    @apply bg-[#1b1f2c]/60 backdrop-blur-xl border border-white/5;
+    @apply bg-[#1b1f2c]/40 backdrop-blur-[24px] border border-white/5;
     position: relative;
     overflow: hidden;
   }

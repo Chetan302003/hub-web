@@ -18,6 +18,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const navLinks = [
   { to: '/dashboard', label: 'DASHBOARD', icon: LayoutDashboard },
+  { to: '/stats', label: 'MY_STATS', icon: Trophy },
   { to: '/leaderboard', label: 'RANKINGS', icon: Trophy },
   { to: '/calendar', label: 'SCHEDULE', icon: Calendar },
   { to: '/fleet', label: 'FLEET_MAP', icon: Map },
@@ -108,22 +109,13 @@ export function Navbar() {
                     <motion.div 
                         initial={{ opacity: 0, y: 10, scale: 0.95 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
-                        className="absolute right-0 top-full mt-3 w-56 rounded-2xl bg-[#1b1f2c]/40 backdrop-blur-3xl p-2 z-50 border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
+                        className="absolute right-0 top-full mt-3 w-56 rounded-2xl bg-[#1b1f2c]/40 backdrop-blur-[40px] p-2 z-50 border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
                     >
                       <div className="px-4 py-3 border-b border-white/5 mb-2">
                         <p className="text-[10px] font-black text-[#70eeff] uppercase tracking-widest mb-1">Active Operative</p>
                         <p className="text-sm font-heading font-black text-white truncate">{profile?.username}</p>
                         <p className="text-[10px] text-muted-foreground font-medium truncate">{user.email}</p>
                       </div>
-
-                      <Link
-                        to="/stats"
-                        onClick={() => setProfileOpen(false)}
-                        className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-[10px] font-black text-white hover:bg-white/5 transition-colors uppercase tracking-widest mb-1"
-                      >
-                        <Trophy size={16} className="text-[#e8b800]" />
-                        Operational_Stats
-                      </Link>
                       
                       <button
                         onClick={handleSignOut}
