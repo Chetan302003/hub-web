@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/hub-app/(.*)",
+      "destination": "/hub-app/index.html"
+    }
+  ]
+}
