@@ -174,12 +174,12 @@ export default function MyStats() {
                     </div>
                     <div>
                         <div className="flex items-center gap-2">
-                            <p className="font-heading font-black text-white group-hover:text-[#70eeff] transition-colors">{job.source_city || 'HUB'}</p>
+                            <p className="font-heading font-black text-white group-hover:text-[#70eeff] transition-colors">{job.source_city || job.sourceCity || job.origin_city || job.origin || job.departure_city || job.start_city || 'HUB'}</p>
                             <ArrowLeft size={14} className="rotate-180 text-muted-foreground" />
-                            <p className="font-heading font-black text-white group-hover:text-[#70eeff] transition-colors">{job.destination_city || 'TERM'}</p>
+                            <p className="font-heading font-black text-white group-hover:text-[#70eeff] transition-colors">{job.destination_city || job.destinationCity || job.arrival_city || job.destination || 'TERM'}</p>
                         </div>
                         <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest mt-0.5">
-                            {job.cargo || 'Classified Cargo'}
+                            {job.cargo || job.cargo_name || job.cargo_type || 'Classified Cargo'}
                         </p>
                     </div>
                   </div>

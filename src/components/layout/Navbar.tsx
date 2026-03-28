@@ -106,10 +106,11 @@ export function Navbar() {
                 {profileOpen && (
                   <>
                     <div className="fixed inset-0 z-40" onClick={() => setProfileOpen(false)} />
-                    <motion.div 
-                        initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        className="absolute right-0 top-full mt-3 w-56 rounded-2xl bg-[#1b1f2c]/40 backdrop-blur-[40px] p-2 z-50 border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.95, y: 10 }}
+                      animate={{ opacity: 1, scale: 1, y: 0 }}
+                      exit={{ opacity: 0, scale: 0.95, y: 10 }}
+                      className="absolute right-0 mt-3 w-80 p-2 rounded-2xl bg-black/40 backdrop-blur-[40px] border border-white/10 shadow-[0_30px_60px_rgba(0,0,0,0.5)] z-50 overflow-visible"
                     >
                       <div className="px-4 py-3 border-b border-white/5 mb-2">
                         <p className="text-[10px] font-black text-[#70eeff] uppercase tracking-widest mb-1">Active Operative</p>

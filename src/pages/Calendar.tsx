@@ -23,6 +23,8 @@ interface VTCEvent {
   departure_city: string;
   arrival_city: string;
   start_time: string;
+  start_at?: string;
+  startAt?: string;
   server_name: string | null;
   banner_url: string | null;
 }
@@ -45,7 +47,6 @@ interface CalendarEvent {
 export default function CalendarPage() {
   const { getEvents, getVTCEvents, loading: tmpLoading } = useTruckersMP();
   const [currentMonth, setCurrentMonth] = useState<Date>(new Date());
-  const [tmpEvents, setTmpEvents] = useState<TMPEvent[]>([]);
   const [vtcEvents, setVtcEvents] = useState<VTCEvent[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedEvent, setSelectedEvent] = useState<CalendarEvent | null>(null);
@@ -54,16 +55,10 @@ export default function CalendarPage() {
 
   const fetchAllEvents = async () => {
     setLoading(true);
-    await Promise.all([fetchTMPEvents(), fetchVTCEvents()]);
+    await fetchVTCEvents();
     setLoading(false);
   };
 
-  const fetchTMPEvents = async () => {
-    try {
-      const events = await getEvents();
-      setTmpEvents(Array.isArray(events) ? events : []);
-    } catch { setTmpEvents([]); }
-  };
 
   const fetchVTCEvents = async () => {
     try {
@@ -72,23 +67,29 @@ export default function CalendarPage() {
         getVTCEvents().catch(() => [])
       ]);
 
-      const internalEvents = supabaseResponse.data || [];
-      const externalEvents = (tmpVtcEventsData || []).map((event: any) => ({
-        id: `tmp-vtc-${event.id}`,
-        title: event.name || 'Unknown Event',
-        description: event.description || '',
-        event_type: event.event_type?.key || 'convoy',
-        game: event.game || 'ETS2',
-        departure_city: event.departure?.city || 'Unknown',
-        arrival_city: event.arrive?.city || 'Unknown',
-        start_time: (event.startAt || event.start_at || new Date().toISOString()).replace(' ', 'T'),
-        server_name: event.server?.name || null,
-        banner_url: event.banner || null
+      const internalEvents = (supabaseResponse.data || []).map(e => ({ ...e, is_internal: true }));
+      const { internal = [], attending = [] } = tmpVtcEventsData as any;
+      
+      const externalInternal = internal.map((e: any) => ({
+        id: `tmp-vtc-${e.id}`, title: e.name, description: e.description,
+        event_type: e.event_type?.key, game: e.game,
+        departure_city: e.departure?.city, arrival_city: e.arrive?.city,
+        start_time: (e.start_at || e.startAt || new Date().toISOString()).replace(' ', 'T'),
+        server_name: e.server?.name, banner_url: e.banner, is_internal: true
+      }));
+
+      const externalAttending = attending.map((e: any) => ({
+        id: `tmp-att-${e.id}`, title: e.name, description: e.description,
+        event_type: e.event_type?.key, game: e.game,
+        departure_city: e.departure?.city, arrival_city: e.arrive?.city,
+        start_time: (e.start_at || e.startAt || new Date().toISOString()).replace(' ', 'T'),
+        server_name: e.server?.name, banner_url: e.banner, is_internal: false
       }));
 
       const now = new Date();
-      const combined = [...internalEvents, ...externalEvents].filter(e =>
-        new Date(e.start_time).getTime() >= now.getTime()
+      const sevenDaysAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
+      const combined = [...internalEvents, ...externalInternal, ...externalAttending].filter(e =>
+        new Date(e.start_time || new Date()).getTime() >= sevenDaysAgo.getTime()
       );
       setVtcEvents(combined as any[]);
     } catch { setVtcEvents([]); }
@@ -96,27 +97,26 @@ export default function CalendarPage() {
 
   const calendarEvents = useMemo((): CalendarEvent[] => {
     const events: CalendarEvent[] = [];
-    tmpEvents.forEach(event => {
+    
+    // Process all events from the combined vtcEvents state
+    vtcEvents.forEach((event: any) => {
+      const startTime = event.start_time || event.startAt || event.start_at || new Date().toISOString();
       events.push({
-        id: `tmp-${event.id}`, title: event.name, start: parseISO(event.startAt),
-        type: 'tmp', game: event.game,
-        departure: `${event.departure.city}${event.departure.location ? `, ${event.departure.location}` : ''}`,
-        arrival: `${event.arrive.city}${event.arrive.location ? `, ${event.arrive.location}` : ''}`,
-        description: event.description, url: `https://truckersmp.com/events/${event.id}`,
-        attendees: event.attendances.confirmed, server: event.server?.name, banner: event.banner || undefined
-      });
-    });
-    vtcEvents.forEach(event => {
-      events.push({
-        id: event.id.startsWith?.('tmp-vtc') ? event.id : `vtc-${event.id}`,
-        title: event.title, start: parseISO((event.start_time || new Date().toISOString()).replace(' ', 'T')),
-        type: 'vtc', game: event.game, departure: event.departure_city, arrival: event.arrival_city,
-        description: event.description || undefined, server: event.server_name || undefined,
+        id: event.id.toString(),
+        title: event.title, 
+        start: parseISO(startTime.replace(' ', 'T')),
+        type: event.is_internal ? 'vtc' : 'tmp', 
+        game: event.game, 
+        departure: event.departure_city || 'TBD', 
+        arrival: event.arrival_city || 'TBD',
+        description: event.description || undefined, 
+        server: event.server_name || undefined,
         banner: event.banner_url || undefined
       });
     });
+
     return events.sort((a, b) => a.start.getTime() - b.start.getTime());
-  }, [tmpEvents, vtcEvents]);
+  }, [vtcEvents]);
 
   const getEventsForDay = useCallback((day: Date) => calendarEvents.filter(e => isSameDay(e.start, day)), [calendarEvents]);
 
@@ -186,11 +186,11 @@ export default function CalendarPage() {
         </div>
         <div className="p-4 rounded-xl bg-[#1b1f2c]/40 border border-white/5 backdrop-blur-md">
           <p className="text-[10px] font-black text-[#70eeff] uppercase tracking-widest mb-1">Global Events</p>
-          <p className="text-2xl font-heading font-black text-[#70eeff]">{tmpEvents.length}</p>
+          <p className="text-2xl font-heading font-black text-[#70eeff]">{vtcEvents.filter((e: any) => !e.is_internal).length}</p>
         </div>
         <div className="p-4 rounded-xl bg-[#1b1f2c]/40 border border-white/5 backdrop-blur-md">
           <p className="text-[10px] font-black text-[#a855f7] uppercase tracking-widest mb-1">Internal Convoys</p>
-          <p className="text-2xl font-heading font-black text-[#a855f7]">{vtcEvents.length}</p>
+          <p className="text-2xl font-heading font-black text-[#a855f7]">{vtcEvents.filter((e: any) => e.is_internal).length}</p>
         </div>
         <div className="p-4 rounded-xl bg-black/40 border border-[#5fff9a]/20 backdrop-blur-md border-dashed flex items-center justify-center">
             <p className="text-[10px] font-black text-[#5fff9a] uppercase tracking-[0.2em] animate-pulse">System Live</p>

@@ -7,6 +7,22 @@ export default defineConfig({
   server: {
     host: "::",
     port: 5173,
+    proxy: {
+      '/api/tmp': {
+        target: 'https://api.truckersmp.com/v2',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api\/tmp/, ''),
+      },
+    },
+  },
+  preview: {
+    proxy: {
+      '/api/tmp': {
+        target: 'https://api.truckersmp.com/v2',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api\/tmp/, ''),
+      },
+    },
   },
   plugins: [react()],
   resolve: {

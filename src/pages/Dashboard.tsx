@@ -152,8 +152,8 @@ export default function Dashboard() {
             </h3>
             <div className="text-[10px] font-bold text-muted-foreground border border-white/5 px-2 py-1 rounded bg-white/5">DIST_METRICS_V2</div>
           </div>
-          <div className="h-[280px] w-full">
-            <ResponsiveContainer width="100%" height="100%">
+          <div className="h-[280px] w-full min-w-0">
+            <ResponsiveContainer width="100%" height="100%" minWidth={0}>
               <AreaChart data={weeklyData}>
                 <defs>
                   <linearGradient id="distGrad" x1="0" y1="0" x2="0" y2="1">
@@ -179,8 +179,8 @@ export default function Dashboard() {
             </h3>
             <div className="text-[10px] font-bold text-muted-foreground border border-white/5 px-2 py-1 rounded bg-white/5">FIN_DATA_S04</div>
           </div>
-          <div className="h-[280px] w-full">
-            <ResponsiveContainer width="100%" height="100%">
+          <div className="h-[280px] w-full min-w-0">
+            <ResponsiveContainer width="100%" height="100%" minWidth={0}>
               <BarChart data={weeklyData} margin={{ top: 0, right: 0, left: 0, bottom: 0 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.03)" vertical={false} />
                 <XAxis dataKey="day" stroke="rgba(255,255,255,0.2)" fontSize={10} axisLine={false} tickLine={false} dy={10} />

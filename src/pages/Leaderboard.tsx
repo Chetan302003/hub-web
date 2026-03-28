@@ -78,7 +78,7 @@ export default function Leaderboard() {
             transition={{ delay: 0.2 }}
             className="order-2 md:order-1"
           >
-            <GlassCard className="text-center pt-12 pb-8 border-white/5 relative group hover:border-slate-400/30">
+            <GlassCard className="text-center pt-12 pb-8 border-white/5 relative group hover:border-slate-400/30 !overflow-visible">
               <div className="absolute top-4 left-4 text-[10px] font-black text-slate-400/50 uppercase tracking-widest">RANK_02</div>
               <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-slate-400/20 border border-slate-400/30 flex items-center justify-center font-heading font-black text-slate-300 shadow-[0_0_20px_rgba(148,163,184,0.2)]">02</div>
               <div className="relative w-24 h-24 mx-auto mb-6">
@@ -110,7 +110,7 @@ export default function Leaderboard() {
             transition={{ delay: 0.1 }}
             className="order-1 md:order-2"
           >
-            <GlassCard className="text-center pt-16 pb-10 border-amber-500/20 relative group hover:border-amber-500/40 glow-amber bg-amber-500/[0.03]">
+            <GlassCard className="text-center pt-16 pb-10 border-amber-500/20 relative group hover:border-amber-500/40 glow-amber bg-amber-500/[0.03] !overflow-visible">
               <div className="absolute top-4 left-4 text-[10px] font-black text-amber-500/50 uppercase tracking-widest">RANK_01</div>
               <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-16 h-16 rounded-full bg-amber-500/20 border-2 border-amber-500/40 flex items-center justify-center font-heading font-black text-amber-500 text-xl shadow-[0_0_30px_rgba(232,184,0,0.4)] animate-pulse-glow">👑</div>
               <div className="relative w-32 h-32 mx-auto mb-8">
@@ -147,7 +147,7 @@ export default function Leaderboard() {
             transition={{ delay: 0.3 }}
             className="order-3 md:order-3"
           >
-            <GlassCard className="text-center pt-12 pb-8 border-white/5 relative group hover:border-orange-500/30">
+            <GlassCard className="text-center pt-12 pb-8 border-white/5 relative group hover:border-orange-500/30 !overflow-visible">
               <div className="absolute top-4 left-4 text-[10px] font-black text-orange-500/50 uppercase tracking-widest">RANK_03</div>
               <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-orange-500/20 border border-orange-500/30 flex items-center justify-center font-heading font-black text-orange-400 shadow-[0_0_20px_rgba(249,115,22,0.2)]">03</div>
               <div className="relative w-24 h-24 mx-auto mb-6">
