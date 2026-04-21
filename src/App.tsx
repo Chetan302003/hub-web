@@ -5,6 +5,7 @@ import { Navbar } from '@/components/layout/Navbar';
 import { ProtectedRoute } from '@/components/layout/ProtectedRoute';
 import { Toaster } from 'sonner';
 import { AnimatePresence } from 'framer-motion';
+import { Analytics } from '@vercel/analytics/react';
 import Landing from '@/pages/Landing';
 import Login from '@/pages/Login';
 import Dashboard from '@/pages/Dashboard';
@@ -66,6 +67,7 @@ function App() {
         <BrowserRouter>
           <AnimatedRoutes />
         </BrowserRouter>
+        <Analytics />
       </AuthProvider>
     </QueryClientProvider>
   );
