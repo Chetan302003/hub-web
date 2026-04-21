@@ -247,7 +247,7 @@ export default function Landing() {
                 <h2 className="text-3xl font-heading font-black mb-2">TOP OPERATIVES</h2>
                 <p className="text-[#70eeff]/60 text-xs font-bold uppercase tracking-widest">Global Performance Rankings</p>
               </div>
-              <Link to="/hub-app/leaderboard" className="text-sm font-bold text-[#70eeff] hover:underline flex items-center gap-2">
+              <Link to="/leaderboard" className="text-sm font-bold text-[#70eeff] hover:underline flex items-center gap-2">
                 FULL RANKINGS <ArrowRight size={16} />
               </Link>
             </div>
