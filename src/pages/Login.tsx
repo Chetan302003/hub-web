@@ -90,7 +90,7 @@ export default function Login() {
                 {isSignUp ? 'REGISTER_USER' : 'INIT_AUTH'}
               </h1>
               <p className="text-muted-foreground text-[10px] font-bold uppercase tracking-widest mt-2">
-                Aura Network Protocol / v2.0
+                Meth Network Protocol / v2.0
               </p>
             </div>
 
@@ -158,7 +158,7 @@ export default function Login() {
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    placeholder="SIGNAL@AURA-HUB.NET"
+                    placeholder="SIGNAL@METH-HUB.NET"
                     className="w-full pl-12 pr-4 py-3.5 rounded-xl bg-black/40 border border-white/5 text-foreground placeholder:text-muted-foreground/30 focus:outline-none focus:ring-1 focus:ring-[#70eeff]/50 focus:border-[#70eeff]/50 transition-all text-sm font-heading font-bold"
                     required
                   />
