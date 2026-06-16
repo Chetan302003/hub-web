@@ -292,7 +292,7 @@ export default function Landing() {
           <Truck size={32} className="text-[#70eeff]/40" />
           <div className="hud-line" />
           <p className="text-[10px] text-muted-foreground uppercase font-black tracking-[0.5em]">
-            © 2026 AURA NETWORK PROTOCOL / KEEP ON TRUCKING
+            © 2026 METH NETWORK PROTOCOL / KEEP ON TRUCKING
           </p>
         </div>
       </footer>
