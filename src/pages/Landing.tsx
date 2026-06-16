@@ -132,7 +132,7 @@ export default function Landing() {
           </div>
 
           <h1 className="text-5xl sm:text-6xl lg:text-8xl font-heading font-black tracking-tight mb-8 leading-[0.9]">
-            <span className="text-white">AURA VTC</span><br />
+            <span className="text-white">METH VTC</span><br />
             <span className="text-gradient">HUB</span>
           </h1>
 
@@ -151,7 +151,7 @@ export default function Landing() {
               <ArrowRight size={22} className="group-hover:translate-x-1 transition-transform" />
             </Link>
             <a
-              href="https://github.com/Chetan302003/Aura-Hub/releases/latest"
+              // href="https://github.com/Chetan302003/Aura-Hub/releases/latest"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-ghost px-10 py-4 rounded-xl text-lg flex items-center gap-3"
