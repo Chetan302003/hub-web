@@ -106,7 +106,7 @@ export default function Dashboard() {
           <div className="p-3 rounded-xl bg-[#e8b800]/10 shrink-0"><Users size={24} /></div>
           <div>
             <h3 className="font-heading font-bold text-lg">OPERATOR VALIDATION REQUIRED</h3>
-            <p className="text-sm opacity-80 font-medium">Your credentials have been submitted to Aura HR Mission Control. Access to full simulation data is restricted until approval.</p>
+            <p className="text-sm opacity-80 font-medium">Your credentials have been submitted to Meth HR Mission Control. Access to full simulation data is restricted until approval.</p>
           </div>
         </motion.div>
       )}
