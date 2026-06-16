@@ -45,14 +45,14 @@ export function Navbar() {
             <div className="relative">
                 <div className="absolute inset-0 bg-[#70eeff]/20 blur-md rounded-full scale-0 group-hover:scale-100 transition-transform" />
                 <img
-                    src="https://i.ibb.co/9Hd1f7jr/cropped-circle-image-1.png"
-                    alt="Aura VTC"
+                    //src="https://i.ibb.co/9Hd1f7jr/cropped-circle-image-1.png"
+                    alt="Meth VTC"
                     className="w-10 h-10 rounded-full border border-white/10 relative z-10"
                 />
             </div>
             <div className="flex flex-col">
                 <span className="font-heading font-black text-xl tracking-tighter text-white group-hover:text-[#70eeff] transition-colors">
-                    AURA_HUB
+                    METH_HUB
                 </span>
                 <span className="text-[8px] font-black text-[#70eeff] tracking-[0.4em] uppercase -mt-1 hidden sm:block">
                     Network_Protocol
