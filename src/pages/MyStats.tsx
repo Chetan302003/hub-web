@@ -69,7 +69,7 @@ export default function MyStats() {
             <p className="text-muted-foreground font-medium flex items-center justify-center md:justify-start gap-3">
               <span className="text-[#70eeff]">ID_{user?.id.slice(0, 8).toUpperCase()}</span>
               <span className="opacity-20">|</span>
-              <span>AURA_SYSTEMS_ACCESS_GRANTED</span>
+              <span>METH_SYSTEMS_ACCESS_GRANTED</span>
             </p>
           </div>
         </div>
