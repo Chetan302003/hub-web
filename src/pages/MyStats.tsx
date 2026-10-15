@@ -123,7 +123,7 @@ export default function MyStats() {
                 icon={ShieldAlert} 
                 color={stats && stats.avg_damage > 5 ? "rose" : "green"} 
             />
-            <div className="h-2 w-full bg-white/5 rounded-full overflow-hidden mb-6">
+            <div className="h-2 w-full bg-border rounded-full overflow-hidden mb-6">
               <div 
                 className={cn(
                     "h-full transition-all duration-1000",

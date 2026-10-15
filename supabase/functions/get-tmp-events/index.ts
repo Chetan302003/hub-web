@@ -11,7 +11,7 @@ serve(async (req) => {
   }
 
   try {
-    const vtcId = 75200;
+    const vtcId = 76045;
     
     // Fetch both internal events and global/attending events in parallel
     const [internalRes, attendingRes] = await Promise.all([

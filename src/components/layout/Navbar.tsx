@@ -37,7 +37,7 @@ export function Navbar() {
   };
 
   return (
-    <nav className="sticky top-0 z-50 w-full border-b border-white/5 bg-[#0f131f]/80 backdrop-blur-xl">
+    <nav className="sticky top-0 z-50 w-full border-b border-border bg-surface">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
@@ -51,10 +51,10 @@ export function Navbar() {
                 />
             </div>
             <div className="flex flex-col">
-                <span className="font-heading font-black text-xl tracking-tighter text-white group-hover:text-[#70eeff] transition-colors">
+                <span className="font-heading font-bold text-[22px] text-foreground group-hover:text-primary transition-colors">
                     METH_HUB
                 </span>
-                <span className="text-[8px] font-black text-[#70eeff] tracking-[0.4em] uppercase -mt-1 hidden sm:block">
+                <span className="text-[8px] font-bold text-primary uppercase -mt-1 hidden sm:block">
                     Network_Protocol
                 </span>
             </div>
@@ -70,8 +70,8 @@ export function Navbar() {
                   className={cn(
                     'flex items-center gap-2 px-4 py-2 rounded-xl text-[10px] font-black tracking-widest transition-all uppercase',
                     location.pathname === link.to
-                      ? 'bg-[#70eeff]/5 text-[#70eeff] border border-[#70eeff]/20 shadow-[0_0_15px_rgba(112,238,255,0.1)]'
-                      : 'text-muted-foreground hover:text-white hover:bg-white/5'
+                      ? 'bg-primary/10 text-primary border border-primary/20'
+                      : 'text-muted-foreground hover:text-foreground hover:bg-bg'
                   )}
                 >
                   <link.icon size={14} />
@@ -87,9 +87,9 @@ export function Navbar() {
               <div className="relative">
                 <button
                   onClick={() => setProfileOpen(!profileOpen)}
-                  className="flex items-center gap-3 px-3 py-2 rounded-xl bg-white/5 border border-white/5 hover:border-[#70eeff]/30 transition-all group"
+                  className="flex items-center gap-3 px-3 py-2 rounded-md bg-bg border border-border hover:border-primary/30 transition-colors group"
                 >
-                  <div className="w-8 h-8 rounded-full bg-[#70eeff]/20 border border-[#70eeff]/30 flex items-center justify-center text-[#70eeff] font-bold overflow-hidden shadow-[0_0_10px_rgba(112,238,255,0.2)]">
+                  <div className="w-8 h-8 rounded-full bg-primary/10 border border-primary/30 flex items-center justify-center text-primary font-bold overflow-hidden">
                     {profile?.avatar_url ? (
                       <img src={profile.avatar_url} alt="" className="w-full h-full object-cover" />
                     ) : (
@@ -97,7 +97,7 @@ export function Navbar() {
                     )}
                   </div>
                   <div className="text-left hidden lg:block">
-                    <p className="text-[10px] font-black text-white leading-none mb-0.5">{(profile?.username || 'OPERATOR').toUpperCase()}</p>
+                    <p className="text-[10px] font-bold text-foreground leading-none mb-0.5">{(profile?.username || 'OPERATOR').toUpperCase()}</p>
                     <p className="text-[8px] font-bold text-muted-foreground leading-none">ID_{user.id.slice(0, 8).toUpperCase()}</p>
                   </div>
                   <ChevronDown size={14} className="text-muted-foreground group-hover:text-[#70eeff] transition-colors" />
@@ -110,17 +110,17 @@ export function Navbar() {
                       initial={{ opacity: 0, scale: 0.95, y: 10 }}
                       animate={{ opacity: 1, scale: 1, y: 0 }}
                       exit={{ opacity: 0, scale: 0.95, y: 10 }}
-                      className="absolute right-0 mt-3 w-80 p-2 rounded-2xl bg-black/40 backdrop-blur-[40px] border border-white/10 shadow-[0_30px_60px_rgba(0,0,0,0.5)] z-50 overflow-visible"
+                      className="absolute right-0 mt-3 w-80 p-2 rounded-lg bg-surface border border-border shadow-lg z-50 overflow-visible"
                     >
-                      <div className="px-4 py-3 border-b border-white/5 mb-2">
-                        <p className="text-[10px] font-black text-[#70eeff] uppercase tracking-widest mb-1">Active Operative</p>
-                        <p className="text-sm font-heading font-black text-white truncate">{profile?.username}</p>
+                      <div className="px-4 py-3 border-b border-border mb-2">
+                        <p className="text-xs font-semibold text-primary mb-1">Active Operative</p>
+                        <p className="text-sm font-heading font-bold text-foreground truncate">{profile?.username}</p>
                         <p className="text-[10px] text-muted-foreground font-medium truncate">{user.email}</p>
                       </div>
                       
                       <button
                         onClick={handleSignOut}
-                        className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-[10px] font-black text-[#e83553] hover:bg-[#e83553]/10 transition-colors uppercase tracking-widest"
+                        className="w-full flex items-center gap-3 px-4 py-3 rounded-md text-sm font-semibold text-bad hover:bg-bad/10 transition-colors"
                       >
                         <LogOut size={16} />
                         Terminate_Session
@@ -143,7 +143,7 @@ export function Navbar() {
             {user && (
               <button
                 onClick={() => setMobileOpen(!mobileOpen)}
-                className="md:hidden p-2.5 rounded-xl bg-white/5 border border-white/5 text-foreground transition-all hover:bg-white/10"
+                className="md:hidden p-2.5 rounded-md bg-bg border border-border text-foreground transition-colors hover:bg-accent/10"
               >
                 {mobileOpen ? <X size={20} /> : <Menu size={20} />}
               </button>
@@ -156,7 +156,7 @@ export function Navbar() {
           <motion.div 
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
-            className="md:hidden border-t border-white/5 py-4 space-y-2"
+            className="md:hidden border-t border-border py-4 space-y-2"
           >
             {navLinks.map((link) => (
               <Link
@@ -166,8 +166,8 @@ export function Navbar() {
                 className={cn(
                   'flex items-center gap-4 px-4 py-3.5 rounded-xl text-[10px] font-black tracking-[0.2em] transition-all uppercase',
                   location.pathname === link.to
-                    ? 'bg-[#70eeff]/5 text-[#70eeff] border border-[#70eeff]/20'
-                    : 'text-muted-foreground hover:text-white hover:bg-white/5'
+                    ? 'bg-primary/10 text-primary border border-primary/20'
+                    : 'text-muted-foreground hover:text-foreground hover:bg-bg'
                 )}
               >
                 <link.icon size={18} />

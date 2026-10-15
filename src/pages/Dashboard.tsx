@@ -15,11 +15,11 @@ import {
 import { cn } from '@/lib/utils';
 
 const CHART_COLORS = {
-  cyan: '#70eeff',
-  green: '#5fff9a',
-  purple: '#a855f7',
-  amber: '#e8b800',
-  rose: '#e83553',
+  cyan: 'var(--chart-1)',
+  green: 'var(--ok)',
+  purple: 'var(--chart-2)',
+  amber: 'var(--chart-2)',
+  rose: 'var(--bad)',
 };
 
 export default function Dashboard() {
@@ -40,8 +40,8 @@ export default function Dashboard() {
   const CustomTooltip = ({ active, payload, label }: any) => {
     if (active && payload && payload.length) {
       return (
-        <div className="glass-card p-3 border-white/10 shadow-2xl backdrop-blur-2xl">
-          <p className="text-[10px] font-bold text-[#70eeff] uppercase tracking-widest mb-2 border-b border-white/5 pb-1">{label}</p>
+        <div className="glass-card p-3">
+          <p className="text-xs font-semibold text-primary mb-2 border-b border-border pb-1">{label}</p>
           {payload.map((entry: any, index: number) => (
             <p key={index} className="flex items-center justify-between gap-4 text-xs">
               <span className="text-muted-foreground uppercase">{entry.name}:</span>
@@ -72,7 +72,7 @@ export default function Dashboard() {
         <div className="relative flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div className="space-y-1">
             <div className="flex items-center gap-2 text-[10px] font-black tracking-[0.4em] text-[#70eeff]/60 uppercase">
-              <span className="w-2 h-2 rounded-full bg-[#70eeff] animate-pulse-dot" />
+              <span className="live-indicator" />
               Neural Link Established
             </div>
             <h1 className="text-3xl md:text-5xl font-heading font-black tracking-tighter">
@@ -227,10 +227,10 @@ export default function Dashboard() {
                 <div key={driver.user_id} className="flex items-center gap-4 p-3 rounded-xl bg-white/[0.03] border border-white/5 hover:bg-white/[0.08] hover:border-[#70eeff]/20 transition-all group">
                   <div className={cn(
                     "w-8 h-8 rounded shrink-0 flex items-center justify-center font-heading font-black text-xs",
-                    index === 0 ? 'bg-[#e8b800] text-black shadow-[0_0_10px_rgba(232,184,0,0.5)]' :
-                      index === 1 ? 'bg-slate-300 text-black' :
-                        index === 2 ? 'bg-orange-600 text-white' :
-                          'bg-white/5 text-muted-foreground'
+                    index === 0 ? 'bg-primary text-primary-foreground' :
+                      index === 1 ? 'bg-border text-foreground' :
+                        index === 2 ? 'bg-chart-2/15 text-chart-2' :
+                          'bg-bg text-muted-foreground'
                   )}>
                     {index + 1}
                   </div>

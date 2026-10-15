@@ -110,17 +110,17 @@ export default function Leaderboard() {
             transition={{ delay: 0.1 }}
             className="order-1 md:order-2"
           >
-            <GlassCard className="text-center pt-16 pb-10 border-amber-500/20 relative group hover:border-amber-500/40 glow-amber bg-amber-500/[0.03] !overflow-visible">
-              <div className="absolute top-4 left-4 text-[10px] font-black text-amber-500/50 uppercase tracking-widest">RANK_01</div>
-              <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-16 h-16 rounded-full bg-amber-500/20 border-2 border-amber-500/40 flex items-center justify-center font-heading font-black text-amber-500 text-xl shadow-[0_0_30px_rgba(232,184,0,0.4)] animate-pulse-glow">👑</div>
+            <GlassCard className="text-center pt-16 pb-10 border-primary/20 relative group hover:border-primary/40 bg-primary/[0.03] !overflow-visible">
+              <div className="absolute top-4 left-4 text-[10px] font-black text-primary/70 uppercase tracking-widest">RANK_01</div>
+              <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-16 h-16 rounded-full bg-primary/10 border-2 border-primary/40 flex items-center justify-center font-heading font-black text-primary text-xl animate-pulse-glow">👑</div>
               <div className="relative w-32 h-32 mx-auto mb-8">
-                <div className="absolute inset-0 rounded-full bg-amber-500/20 blur-2xl opacity-40 group-hover:opacity-100 transition-opacity" />
-                <div className="relative w-full h-full rounded-full bg-[#0f131f] border-4 border-amber-500/30 overflow-hidden flex items-center justify-center text-amber-500 text-5xl font-black font-heading shadow-inner">
+                <div className="absolute inset-0 rounded-full bg-primary/10 blur-2xl opacity-40 group-hover:opacity-100 transition-opacity" />
+                <div className="relative w-full h-full rounded-full bg-surface border-4 border-primary/30 overflow-hidden flex items-center justify-center text-primary text-5xl font-black font-heading shadow-inner">
                   {top3[0].avatar_url ? <img src={top3[0].avatar_url} className="w-full h-full object-cover" /> : top3[0].username?.charAt(0)}
                 </div>
               </div>
               <h3 className="font-heading font-black text-3xl mb-1 uppercase tracking-tighter truncate px-4">{top3[0].username}</h3>
-              <p className="text-amber-500 font-heading font-black text-4xl tracking-tighter">{formatNumber(Number(top3[0].total_distance))} KM</p>
+              <p className="text-primary font-heading font-black text-4xl tracking-tighter">{formatNumber(Number(top3[0].total_distance))} KM</p>
               <div className="flex items-center justify-center gap-6 mt-8">
                 <div className="text-center">
                   <p className="text-[10px] font-black text-muted-foreground uppercase tracking-widest">Missions</p>
@@ -133,9 +133,9 @@ export default function Leaderboard() {
                 </div>
               </div>
               <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1">
-                <Zap size={10} className="text-amber-500" />
-                <Zap size={10} className="text-amber-500" />
-                <Zap size={10} className="text-amber-500" />
+                <Zap size={10} className="text-primary" />
+                <Zap size={10} className="text-primary" />
+                <Zap size={10} className="text-primary" />
               </div>
             </GlassCard>
           </motion.div>

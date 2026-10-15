@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useAuth } from '@/hooks/useAuth';
 import { useFleetStats } from '@/hooks/useFleetStats';
 import { GlassCard, StatCard } from '@/components/layout/GlassCard';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import {
   Truck,
   MapPin,
@@ -107,17 +107,10 @@ const features = [
 export default function Landing() {
   const { user } = useAuth();
   const { stats, leaderboard } = useFleetStats();
-  const { scrollYProgress } = useScroll();
-  const y1 = useTransform(scrollYProgress, [0, 1], [0, -200]);
-  const y2 = useTransform(scrollYProgress, [0, 1], [0, 200]);
-
   return (
     <div className="min-h-screen relative overflow-x-hidden">
       {/* Background HUD Layers */}
       <div className="fixed inset-0 hud-grid pointer-events-none opacity-20" />
-      <motion.div style={{ y: y1 }} className="absolute -top-40 -right-40 w-[600px] h-[600px] bg-[#70eeff]/5 blur-[120px] rounded-full pointer-events-none" />
-      <motion.div style={{ y: y2 }} className="absolute top-[40%] -left-40 w-[500px] h-[500px] bg-[#a855f7]/5 blur-[100px] rounded-full pointer-events-none" />
-
       {/* Hero Section */}
       <section className="relative pt-32 pb-24 px-4 sm:px-6 lg:px-8">
         <motion.div

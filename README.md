@@ -1,5 +1,16 @@
 # React + TypeScript + Vite
 
+## Local setup
+
+Create `.env.local` with your Supabase project URL and browser-safe anon or publishable key:
+
+```env
+VITE_SUPABASE_URL=https://your-project.supabase.co
+VITE_SUPABASE_ANON_KEY=your-anon-or-publishable-key
+```
+
+These values are available in your Supabase project settings under API. Do not use a service-role key in the browser. Restart the Vite server after changing environment variables. Without these values, the app displays a setup notice instead of crashing on startup.
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:

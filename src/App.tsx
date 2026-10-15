@@ -58,9 +58,9 @@ function App() {
           position="top-right"
           toastOptions={{
             style: {
-              background: 'hsl(220, 18%, 10%)',
-              border: '1px solid hsl(220, 15%, 20%)',
-              color: 'hsl(210, 40%, 96%)',
+              background: 'var(--surface)',
+              border: '1px solid var(--border-color)',
+              color: 'var(--text)',
             },
           }}
         />

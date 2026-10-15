@@ -348,7 +348,7 @@ export default function CalendarPage() {
                         <div className="space-y-1">
                             <p className="text-[10px] font-black text-muted-foreground uppercase tracking-widest">Deployment Server</p>
                             <div className="flex items-center gap-3 text-white">
-                                <Globe size={16} className="text-amber-500" />
+                                <Globe size={16} className="text-chart-2" />
                                 <span className="font-heading font-bold text-sm uppercase">{selectedEvent.server || 'TBD_ENCRYPTED'}</span>
                             </div>
                         </div>

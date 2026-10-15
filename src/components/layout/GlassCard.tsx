@@ -10,8 +10,8 @@ interface GlassCardProps {
 export function GlassCard({ children, className, hoverGlow = true }: GlassCardProps) {
   return (
     <div className={cn(
-      "glass-card p-6 rounded-xl transition-all duration-300",
-      hoverGlow && "hover:glow-cyan hover:border-white/10",
+      "glass-card p-[18px] rounded-[14px] transition-colors duration-200",
+      hoverGlow && "hover:border-primary/30",
       className
     )}>
       {children}
@@ -37,19 +37,19 @@ export function StatCard({
   suffix?: string;
 }) {
   const colorMap = {
-    cyan: 'text-[#70eeff] shadow-[#70eeff]/20',
-    green: 'text-[#5fff9a] shadow-[#5fff9a]/20',
-    amber: 'text-[#e8b800] shadow-[#e8b800]/20',
-    purple: 'text-[#a855f7] shadow-[#a855f7]/20',
-    rose: 'text-[#e83553] shadow-[#e83553]/20',
+    cyan: 'text-primary',
+    green: 'text-ok',
+    amber: 'text-chart-2',
+    purple: 'text-chart-2',
+    rose: 'text-bad',
   };
 
   const iconBgMap = {
-    cyan: 'bg-[#70eeff]/10 text-[#70eeff]',
-    green: 'bg-[#5fff9a]/10 text-[#5fff9a]',
-    amber: 'bg-[#e8b800]/10 text-[#e8b800]',
-    purple: 'bg-[#a855f7]/10 text-[#a855f7]',
-    rose: 'bg-[#e83553]/10 text-[#e83553]',
+    cyan: 'bg-primary/10 text-primary',
+    green: 'bg-ok/10 text-ok',
+    amber: 'bg-chart-2/10 text-chart-2',
+    purple: 'bg-chart-2/10 text-chart-2',
+    rose: 'bg-bad/10 text-bad',
   };
 
   return (
@@ -67,7 +67,7 @@ export function StatCard({
         {trend && (
           <span className={cn(
             "text-[10px] font-bold px-2 py-0.5 rounded-full border",
-            trend.isPositive ? "text-green-400 border-green-400/20 bg-green-400/5" : "text-rose-400 border-rose-400/20 bg-rose-400/5"
+            trend.isPositive ? "text-ok border-ok/20 bg-ok/5" : "text-bad border-bad/20 bg-bad/5"
           )}>
             {trend.value}
           </span>
@@ -89,10 +89,10 @@ export function MiniStat({ label, value, icon: Icon, color = 'cyan' }: { label: 
     <div className="flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/5 hover:bg-white/10 transition-colors group">
       <div className={cn(
         "p-2 rounded-lg transition-transform group-hover:scale-110",
-        color === 'green' ? 'text-[#5fff9a] bg-[#5fff9a]/10' :
-        color === 'amber' ? 'text-[#e8b800] bg-[#e8b800]/10' :
-        color === 'rose' ? 'text-[#e83553] bg-[#e83553]/10' :
-        'text-[#70eeff] bg-[#70eeff]/10'
+        color === 'green' ? 'text-ok bg-ok/10' :
+        color === 'amber' ? 'text-chart-2 bg-chart-2/10' :
+        color === 'rose' ? 'text-bad bg-bad/10' :
+        'text-primary bg-primary/10'
       )}>
         <Icon size={16} />
       </div>
