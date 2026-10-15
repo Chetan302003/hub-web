@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '@/hooks/useAuth';
 import { cn } from '@/lib/utils';
+import { ThemeToggle } from '@/components/layout/ThemeToggle';
 import {
   LayoutDashboard,
   Trophy,
@@ -83,6 +84,7 @@ export function Navbar() {
 
           {/* Right side */}
           <div className="flex items-center gap-4">
+            <ThemeToggle className="hidden sm:inline-flex" />
             {user ? (
               <div className="relative">
                 <button
@@ -132,10 +134,10 @@ export function Navbar() {
             ) : (
               <Link
                 to="/login"
-                className="btn-primary px-6 py-2.5 rounded-xl text-[10px] font-black uppercase tracking-widest flex items-center gap-2"
+                className="btn-primary px-3 sm:px-6 py-2.5 rounded-xl text-[10px] font-black uppercase tracking-widest flex items-center gap-2"
               >
                 <Zap size={14} />
-                INITIALIZE_AUTH
+                <span className="hidden sm:inline">INITIALIZE_AUTH</span>
               </Link>
             )}
 
@@ -149,6 +151,10 @@ export function Navbar() {
               </button>
             )}
           </div>
+        </div>
+
+        <div className="sm:hidden flex justify-end border-t border-border py-2">
+          <ThemeToggle />
         </div>
 
         {/* Mobile nav */}

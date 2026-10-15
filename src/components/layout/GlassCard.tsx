@@ -11,7 +11,7 @@ export function GlassCard({ children, className, hoverGlow = true }: GlassCardPr
   return (
     <div className={cn(
       "glass-card p-[18px] rounded-[14px] transition-colors duration-200",
-      hoverGlow && "hover:border-primary/30",
+      hoverGlow && "hover:bg-elev hover:border-border-strong",
       className
     )}>
       {children}

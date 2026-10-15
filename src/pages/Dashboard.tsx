@@ -227,7 +227,7 @@ export default function Dashboard() {
                 <div key={driver.user_id} className="flex items-center gap-4 p-3 rounded-xl bg-white/[0.03] border border-white/5 hover:bg-white/[0.08] hover:border-[#70eeff]/20 transition-all group">
                   <div className={cn(
                     "w-8 h-8 rounded shrink-0 flex items-center justify-center font-heading font-black text-xs",
-                    index === 0 ? 'bg-primary text-primary-foreground' :
+                    index === 0 ? 'bg-accent text-accent-foreground' :
                       index === 1 ? 'bg-border text-foreground' :
                         index === 2 ? 'bg-chart-2/15 text-chart-2' :
                           'bg-bg text-muted-foreground'

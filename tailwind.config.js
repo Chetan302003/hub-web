@@ -7,30 +7,30 @@ export default {
   theme: {
     extend: {
       colors: {
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
+        border: "var(--border)",
+        input: "var(--border-strong)",
+        ring: "var(--accent-text)",
+        background: "var(--bg)",
+        foreground: "var(--text)",
         primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
+          DEFAULT: "var(--accent-text)",
+          foreground: "var(--on-accent)",
         },
         secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
+          DEFAULT: "var(--elev)",
+          foreground: "var(--text)",
         },
         muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
+          DEFAULT: "var(--elev)",
+          foreground: "var(--muted)",
         },
         accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
+          DEFAULT: "var(--accent)",
+          foreground: "var(--on-accent)",
         },
         card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
+          DEFAULT: "var(--surface)",
+          foreground: "var(--text)",
         },
         surface: "var(--surface)",
         elev: "var(--elev)",
@@ -40,13 +40,13 @@ export default {
           1: "var(--chart-1)",
           2: "var(--chart-2)",
         },
-        cyan: "var(--accent-color)",
+        cyan: "var(--accent-text)",
         green: "var(--ok)",
         amber: "var(--chart-2)",
         purple: "var(--chart-2)",
         hub: {
           navy: "var(--text)",
-          cyan: "var(--accent-color)",
+          cyan: "var(--accent-text)",
           green: "var(--ok)",
           purple: "var(--chart-2)",
           amber: "var(--chart-2)",
@@ -68,7 +68,7 @@ export default {
       },
       backgroundImage: {
         'gradient-cyan-green': 'linear-gradient(135deg, var(--elev) 0%, var(--surface) 100%)',
-        'gradient-amber-rose': 'linear-gradient(135deg, var(--accent-color) 0%, var(--chart-2) 100%)',
+        'gradient-amber-rose': 'linear-gradient(135deg, var(--accent-text) 0%, var(--chart-2) 100%)',
       },
       animation: {
         'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',

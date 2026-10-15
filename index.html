@@ -4,8 +4,17 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f6f0e2" />
     <meta name="description" content="Meth VTC Hub — A modern, high-performance virtual trucking hub for ETS2 & ATS. Live telemetry, fleet analytics, and leaderboards." />
     <title>Meth VTC Hub</title>
+    <script>
+      try {
+        var savedTheme = localStorage.getItem('theme');
+        var darkTheme = savedTheme === 'dark' || (savedTheme !== 'light' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        document.documentElement.dataset.theme = darkTheme ? 'dark' : 'light';
+        document.querySelector('meta[name="theme-color"]').setAttribute('content', darkTheme ? '#1d2025' : '#f6f0e2');
+      } catch (e) {}
+    </script>
   </head>
   <body>
     <div id="root"></div>
