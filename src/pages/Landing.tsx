@@ -144,7 +144,7 @@ export default function Landing() {
               <ArrowRight size={22} className="group-hover:translate-x-1 transition-transform" />
             </Link>
             <a
-              // href="https://github.com/Chetan302003/Aura-Hub/releases/latest"
+               href="https://github.com/Chetan302003/Meth-Hub/releases/latest"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-ghost px-10 py-4 rounded-xl text-lg flex items-center gap-3"
