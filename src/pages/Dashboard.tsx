@@ -162,8 +162,8 @@ export default function Dashboard() {
                   </linearGradient>
                 </defs>
                 <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.03)" vertical={false} />
-                <XAxis dataKey="day" stroke="rgba(255,255,255,0.2)" fontSize={10} axisLine={false} tickLine={false} dy={10} />
-                <YAxis stroke="rgba(255,255,255,0.2)" fontSize={10} axisLine={false} tickLine={false} dx={-10} />
+                <XAxis dataKey="day" stroke="var(--muted)" tick={{ fill: 'var(--text)' }} fontSize={10} axisLine={false} tickLine={false} dy={10} />
+                <YAxis stroke="var(--muted)" tick={{ fill: 'var(--text)' }} fontSize={10} axisLine={false} tickLine={false} dx={-10} />
                 <Tooltip content={<CustomTooltip />} cursor={{ stroke: 'rgba(255,255,255,0.1)', strokeWidth: 1 }} />
                 <Area type="monotone" dataKey="distance" name="distance" stroke={CHART_COLORS.green} strokeWidth={3} fill="url(#distGrad)" animationDuration={2000} />
               </AreaChart>
@@ -183,8 +183,8 @@ export default function Dashboard() {
             <ResponsiveContainer width="100%" height="100%" minWidth={0}>
               <BarChart data={weeklyData} margin={{ top: 0, right: 0, left: 0, bottom: 0 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.03)" vertical={false} />
-                <XAxis dataKey="day" stroke="rgba(255,255,255,0.2)" fontSize={10} axisLine={false} tickLine={false} dy={10} />
-                <YAxis stroke="rgba(255,255,255,0.2)" fontSize={10} axisLine={false} tickLine={false} dx={-10} />
+                <XAxis dataKey="day" stroke="var(--muted)" tick={{ fill: 'var(--text)' }} fontSize={10} axisLine={false} tickLine={false} dy={10} />
+                <YAxis stroke="var(--muted)" tick={{ fill: 'var(--text)' }} fontSize={10} axisLine={false} tickLine={false} dx={-10} />
                 <Tooltip content={<CustomTooltip />} cursor={{ fill: 'rgba(255,255,255,0.05)' }} />
                 <Bar dataKey="income" name="income" radius={[4, 4, 0, 0]} animationDuration={1500}>
                   {weeklyData?.map((_, index) => (
