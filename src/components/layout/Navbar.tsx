@@ -62,25 +62,23 @@ export function Navbar() {
           </Link>
 
           {/* Desktop Nav */}
-          {user && (
-            <div className="hidden md:flex items-center gap-2">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.to}
-                  to={link.to}
-                  className={cn(
-                    'flex items-center gap-2 px-4 py-2 rounded-xl text-[10px] font-black tracking-widest transition-all uppercase',
-                    location.pathname === link.to
-                      ? 'bg-primary/10 text-primary border border-primary/20'
-                      : 'text-muted-foreground hover:text-foreground hover:bg-bg'
-                  )}
-                >
-                  <link.icon size={14} />
-                  {link.label}
-                </Link>
-              ))}
-            </div>
-          )}
+          <div className="hidden md:flex items-center gap-2">
+            {navLinks.map((link) => (
+              <Link
+                key={link.to}
+                to={link.to}
+                className={cn(
+                  'flex items-center gap-2 px-4 py-2 rounded-xl text-[10px] font-black tracking-widest transition-all uppercase',
+                  location.pathname === link.to
+                    ? 'bg-primary/10 text-primary border border-primary/20'
+                    : 'text-muted-foreground hover:text-foreground hover:bg-bg'
+                )}
+              >
+                <link.icon size={14} />
+                {link.label}
+              </Link>
+            ))}
+          </div>
 
           {/* Right side */}
           <div className="flex items-center gap-4">
@@ -142,14 +140,14 @@ export function Navbar() {
             )}
 
             {/* Mobile menu button */}
-            {user && (
-              <button
-                onClick={() => setMobileOpen(!mobileOpen)}
-                className="md:hidden p-2.5 rounded-md bg-bg border border-border text-foreground transition-colors hover:bg-accent/10"
-              >
-                {mobileOpen ? <X size={20} /> : <Menu size={20} />}
-              </button>
-            )}
+            <button
+              onClick={() => setMobileOpen(!mobileOpen)}
+              aria-label={mobileOpen ? 'Close navigation menu' : 'Open navigation menu'}
+              aria-expanded={mobileOpen}
+              className="md:hidden p-2.5 rounded-md bg-bg border border-border text-foreground transition-colors hover:bg-accent/10"
+            >
+              {mobileOpen ? <X size={20} /> : <Menu size={20} />}
+            </button>
           </div>
         </div>
 
@@ -158,7 +156,7 @@ export function Navbar() {
         </div>
 
         {/* Mobile nav */}
-        {mobileOpen && user && (
+        {mobileOpen && (
           <motion.div 
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}

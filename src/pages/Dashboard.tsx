@@ -73,31 +73,31 @@ export default function Dashboard() {
           <div className="space-y-1">
             <div className="flex items-center gap-2 text-[10px] font-black tracking-[0.4em] text-[#70eeff]/60 uppercase">
               <span className="live-indicator" />
-              Neural Link Established
+              {user ? 'Neural Link Established' : 'Public Fleet Overview'}
             </div>
             <h1 className="text-3xl md:text-5xl font-heading font-black tracking-tighter">
-              WELCOME, <span className="text-gradient uppercase">{profile?.username || 'OPERATOR'}</span>
+              WELCOME, <span className="text-gradient uppercase">{profile?.username || (user ? 'OPERATOR' : 'VISITOR')}</span>
             </h1>
             <p className="text-muted-foreground text-sm font-medium">
-              {isApproved ? "FLEET PROTOCOL ACTIVATED / SYSTEM NOMINAL" : "AUTHORIZATION PENDING / RESTRICTED ACCESS"}
+              {!user ? 'PUBLIC FLEET DATA / SIGN IN FOR PERSONAL STATS' : isApproved ? "FLEET PROTOCOL ACTIVATED / SYSTEM NOMINAL" : "AUTHORIZATION PENDING / RESTRICTED ACCESS"}
             </p>
           </div>
 
           <div className="flex items-center gap-2 bg-black/40 border border-white/5 p-4 rounded-xl backdrop-blur-xl">
             <div className="text-right">
               <p className="text-[10px] font-bold text-muted-foreground uppercase">System Status</p>
-              <p className={cn("text-xs font-heading font-bold", isApproved ? "text-[#5fff9a]" : "text-[#e8b800]")}>
-                {isApproved ? "FULLY OPERATIONAL" : "PENDING VERIFICATION"}
+              <p className={cn("text-xs font-heading font-bold", !user ? "text-primary" : isApproved ? "text-[#5fff9a]" : "text-[#e8b800]")}>
+                {!user ? "PUBLIC ACCESS" : isApproved ? "FULLY OPERATIONAL" : "PENDING VERIFICATION"}
               </p>
             </div>
-            <div className={cn("p-2 rounded-lg", isApproved ? "bg-[#5fff9a]/10 text-[#5fff9a]" : "bg-[#e8b800]/10 text-[#e8b800]")}>
-              {isApproved ? <Activity size={20} /> : <ShieldAlert size={20} />}
+            <div className={cn("p-2 rounded-lg", !user ? "bg-primary/10 text-primary" : isApproved ? "bg-[#5fff9a]/10 text-[#5fff9a]" : "bg-[#e8b800]/10 text-[#e8b800]")}>
+              {!user ? <Activity size={20} /> : isApproved ? <Activity size={20} /> : <ShieldAlert size={20} />}
             </div>
           </div>
         </div>
       </div>
 
-      {!isApproved && (
+      {user && !isApproved && (
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}

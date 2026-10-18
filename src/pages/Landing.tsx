@@ -137,10 +137,10 @@ export default function Landing() {
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
             <Link
-              to={user ? "/dashboard" : "/login"}
+              to="/dashboard"
               className="btn-primary px-10 py-4 rounded-xl text-lg flex items-center gap-3 transition-all"
             >
-              {user ? "Enter Hub Dashboard" : "Login to Terminal"}
+              {user ? "Enter Hub Dashboard" : "Explore Fleet Dashboard"}
               <ArrowRight size={22} className="group-hover:translate-x-1 transition-transform" />
             </Link>
             <a

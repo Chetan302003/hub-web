@@ -37,12 +37,13 @@ function AnimatedRoutes() {
         <Route path="/" element={<Landing />} />
         <Route path="/login" element={<Login />} />
 
-        {/* Protected routes with layout */}
+        {/* Public hub routes */}
         <Route element={<AppLayout />}>
-          <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
-          <Route path="/leaderboard" element={<ProtectedRoute><Leaderboard /></ProtectedRoute>} />
-          <Route path="/calendar" element={<ProtectedRoute><CalendarPage /></ProtectedRoute>} />
-          <Route path="/fleet" element={<ProtectedRoute><Fleet /></ProtectedRoute>} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/leaderboard" element={<Leaderboard />} />
+          <Route path="/calendar" element={<CalendarPage />} />
+          <Route path="/fleet" element={<Fleet />} />
+          {/* Personal stats contain user-specific data. */}
           <Route path="/stats" element={<ProtectedRoute><MyStats /></ProtectedRoute>} />
         </Route>
       </Routes>
