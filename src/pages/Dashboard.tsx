@@ -79,7 +79,7 @@ export default function Dashboard() {
               WELCOME, <span className="text-gradient uppercase">{profile?.username || (user ? 'OPERATOR' : 'VISITOR')}</span>
             </h1>
             <p className="text-muted-foreground text-sm font-medium">
-              {!user ? 'PUBLIC FLEET DATA / SIGN IN FOR PERSONAL STATS' : isApproved ? "FLEET PROTOCOL ACTIVATED / SYSTEM NOMINAL" : "AUTHORIZATION PENDING / RESTRICTED ACCESS"}
+              {!user ? 'PUBLIC FLEET DATA / SIGN IN FOR PERSONAL STATS' : isApproved ? "FLEET PROTOCOL ACTIVATED / SYSTEM NOMINAL" : "PUBLIC FLEET OVERVIEW / AUTHORIZATION PENDING"}
             </p>
           </div>
 
@@ -106,7 +106,7 @@ export default function Dashboard() {
           <div className="p-3 rounded-xl bg-[#e8b800]/10 shrink-0"><Users size={24} /></div>
           <div>
             <h3 className="font-heading font-bold text-lg">OPERATOR VALIDATION REQUIRED</h3>
-            <p className="text-sm opacity-80 font-medium">Your credentials have been submitted to Meth HR Mission Control. Access to full simulation data is restricted until approval.</p>
+            <p className="text-sm opacity-80 font-medium">Your account is pending verification. The public fleet overview remains available while your account is reviewed.</p>
           </div>
         </motion.div>
       )}

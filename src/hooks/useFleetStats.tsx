@@ -21,6 +21,12 @@ interface LeaderboardEntry {
   total_earnings: number;
 }
 
+interface PublicWeeklyData {
+  day: string;
+  distance: number | string;
+  income: number | string;
+}
+
 export function useFleetStats() {
   const [stats, setStats] = useState<FleetStats | null>(null);
   const [leaderboard, setLeaderboard] = useState<LeaderboardEntry[]>([]);
@@ -30,48 +36,23 @@ export function useFleetStats() {
   const fetchStats = async () => {
     try {
       const { data, error } = await (supabase as any)
-        .from('job_logs')
+        .from('public_fleet_stats')
         .select('*')
-        .eq('status', 'delivered');
-
-      const rawJobs = (data || []) as any[];
+        .single();
       if (error) throw error;
 
-      if (!rawJobs || rawJobs.length === 0) {
-        setStats({
-          total_distance: 0, total_deliveries: 0, total_fuel: 0,
-          total_income: 0, total_expenses: 0, total_profit: 0,
-          active_drivers: 0, total_load_weight: 0
-        });
-        return;
-      }
+      if (!data) throw new Error('Fleet stats view returned no totals');
 
-      const aggregated = rawJobs.reduce((acc, job: any) => {
-        const income = Number(job.income) || 0;
-        const fuelConsumed = Number(job.fuel_consumed) || 0;
-        const fuelCost = Number(job.fuel_cost) || (fuelConsumed * 1.5);
-        const otherExpense = Number(job.other_expenses) || 0;
-        const totalJobExpense = fuelCost + otherExpense;
-
-        return {
-          total_distance: acc.total_distance + (Number(job.distance_km) || 0),
-          total_deliveries: acc.total_deliveries + 1,
-          total_fuel: acc.total_fuel + fuelConsumed,
-          total_income: acc.total_income + income,
-          total_expenses: acc.total_expenses + totalJobExpense,
-          total_profit: acc.total_profit + (income - totalJobExpense),
-          active_drivers: 0,
-          total_load_weight: acc.total_load_weight + (Number(job.cargo_weight || job.cargo_mass) || 0)
-        };
-      }, {
-        total_distance: 0, total_deliveries: 0, total_fuel: 0,
-        total_income: 0, total_expenses: 0, total_profit: 0,
-        active_drivers: 0, total_load_weight: 0
+      setStats({
+        total_distance: Number(data.total_distance),
+        total_deliveries: Number(data.total_deliveries),
+        total_fuel: Number(data.total_fuel),
+        total_income: Number(data.total_income),
+        total_expenses: Number(data.total_expenses),
+        total_profit: Number(data.total_profit),
+        active_drivers: Number(data.active_drivers),
+        total_load_weight: Number(data.total_load_weight)
       });
-
-      const activeDriversSet = new Set(rawJobs.map(j => j.user_id));
-      aggregated.active_drivers = activeDriversSet.size;
-      setStats(aggregated);
     } catch (err: any) {
       console.error('Error fetching fleet stats:', err);
       setError(err.message);
@@ -168,49 +149,18 @@ export function useWeeklyData() {
     const fetchWeeklyData = async () => {
       setLoading(true);
       try {
-        const today = new Date();
-        const sevenDaysAgo = new Date(today);
-        sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 6);
-
-        const { data: jobs, error } = await (supabase as any)
-          .from('job_logs')
-          .select('delivery_date, distance_km, income')
-          .eq('status', 'delivered')
-          .gte('delivery_date', sevenDaysAgo.toISOString())
+        const { data, error } = await (supabase as any)
+          .from('public_fleet_weekly_data')
+          .select('day, distance, income')
           .order('delivery_date', { ascending: true });
-
         if (error) throw error;
 
-        const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-        const dailyData: Record<string, { distance: number; income: number }> = {};
-
-        for (let i = 0; i < 7; i++) {
-          const date = new Date(sevenDaysAgo);
-          date.setDate(date.getDate() + i);
-          const dayName = dayNames[date.getDay()];
-          dailyData[dayName] = { distance: 0, income: 0 };
-        }
-
-        (jobs || []).forEach((job: any) => {
-          if (job.delivery_date) {
-            const date = new Date(job.delivery_date);
-            const dayName = dayNames[date.getDay()];
-            if (dailyData[dayName]) {
-              dailyData[dayName].distance += Number(job.distance_km || 0);
-              dailyData[dayName].income += Number(job.income || 0);
-            }
-          }
-        });
-
-        const orderedData = [];
-        for (let i = 0; i < 7; i++) {
-          const date = new Date(sevenDaysAgo);
-          date.setDate(date.getDate() + i);
-          const dayName = dayNames[date.getDay()];
-          orderedData.push({ day: dayName, ...dailyData[dayName] });
-        }
-
-        setWeeklyData(orderedData);
+        const weeklyRows = (data || []) as PublicWeeklyData[];
+        setWeeklyData(weeklyRows.map((day) => ({
+          day: day.day,
+          distance: Number(day.distance),
+          income: Number(day.income)
+        })));
       } catch (err) {
         console.error('Error fetching weekly data:', err);
         setWeeklyData([
