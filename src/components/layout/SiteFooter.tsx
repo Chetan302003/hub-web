@@ -1,3 +1,4 @@
+import { Heart } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export function SiteFooter() {
@@ -24,7 +25,7 @@ export function SiteFooter() {
           >
             Chetan
           </a>{' '}
-          ❤️
+          <Heart aria-label="love" className="inline h-3 w-3 fill-yellow-400 text-yellow-400" />
         </span>
         <span aria-hidden="true">|</span>
         <span>
