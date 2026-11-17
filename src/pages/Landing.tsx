@@ -125,7 +125,7 @@ export default function Landing() {
           </div>
 
           <h1 className="text-5xl sm:text-6xl lg:text-8xl font-heading font-black tracking-tight mb-8 leading-[0.9]">
-            <span className="text-white">MY</span>
+            <span className="text-white mr-2">MY</span>
             <span className="text-gradient">HUB</span>
           </h1>
 
