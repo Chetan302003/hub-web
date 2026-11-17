@@ -5,7 +5,6 @@ import { useFleetStats } from '@/hooks/useFleetStats';
 import { GlassCard, StatCard } from '@/components/layout/GlassCard';
 import { motion } from 'framer-motion';
 import {
-  Truck,
   MapPin,
   DollarSign,
   Users,
@@ -18,8 +17,6 @@ import {
   Zap,
   Shield,
   Activity,
-  Trophy,
-  Heart,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -280,42 +277,6 @@ export default function Landing() {
         </section>
       )}
 
-      {/* Terminal Footer */}
-      <footer className="relative py-12 px-4 border-t border-white/5">
-        <div className="max-w-7xl mx-auto flex flex-col items-center gap-6">
-          <Truck size={32} className="text-[#70eeff]/40" />
-          <div className="hud-line" />
-          <p className="text-xs text-muted-foreground text-center">
-            © 2026 MY HUB. All rights reserved.
-          </p>
-          <nav className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-xs text-muted-foreground">
-            <Link to="/terms-of-service" className="hover:text-[#70eeff] transition-colors">
-              Terms of Service
-            </Link>
-            <Link to="/privacy-policy" className="hover:text-[#70eeff] transition-colors">
-              Privacy Policy
-            </Link>
-          </nav>
-          <p className="text-xs text-muted-foreground text-center">
-            Built by{' '}
-            <a
-              href="https://chetanmahajan.site/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-[#70eeff] transition-colors"
-            >
-              Chetan
-            </a>{' '}
-            <Heart className="w-4 h-4 text-yellow-400 fill-yellow-400" />
-          </p>
-          <p className="text-xs text-muted-foreground text-center">
-            Contact us at{' '}
-            <a href="mailto:myhub@chetanmahajan.site" className="hover:text-[#70eeff] transition-colors">
-              myhub@chetanmahajan.site
-            </a>
-          </p>
-        </div>
-      </footer>
     </div>
   );
 }

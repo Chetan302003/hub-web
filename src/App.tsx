@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, useLocation, Outlet } from 'react-router-
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { AuthProvider } from '@/hooks/useAuth';
 import { Navbar } from '@/components/layout/Navbar';
+import { SiteFooter } from '@/components/layout/SiteFooter';
 import { ProtectedRoute } from '@/components/layout/ProtectedRoute';
 import { Toaster } from 'sonner';
 import { AnimatePresence } from 'framer-motion';
@@ -71,6 +72,7 @@ function App() {
         />
         <BrowserRouter>
           <AnimatedRoutes />
+          <SiteFooter />
         </BrowserRouter>
         <Analytics />
       </AuthProvider>

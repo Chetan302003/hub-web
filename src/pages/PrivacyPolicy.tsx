@@ -7,7 +7,7 @@ export default function PrivacyPolicy() {
         <h1 className="font-heading text-3xl font-black tracking-tight sm:text-4xl">
           MY HUB Privacy Policy
         </h1>
-        <div className="space-y-1 text-sm text-muted-foreground">
+        <div className="flex w-fit max-w-full gap-x-4 overflow-x-auto whitespace-nowrap text-sm text-muted-foreground">
           <p>Effective Date: 15/02/2026</p>
           <p>Last Updated: 16/02/2026</p>
         </div>
@@ -206,8 +206,7 @@ export default function PrivacyPolicy() {
           </p>
           <ul className="list-disc space-y-1 pl-6">
             <li>
-              Website: Contact the Management Team through our{' '}
-              <a href="#contact-form" className="text-primary underline">Contact Us page</a>.
+              Website: Contact the Management Team using the email below.
             </li>
             <li>
               Discord:{' '}
@@ -228,69 +227,6 @@ export default function PrivacyPolicy() {
               .
             </li>
           </ul>
-        </section>
-
-        <section id="contact-form" className="space-y-4 rounded-2xl border border-border bg-surface p-6">
-          <h2 className="font-heading text-xl font-bold text-foreground">Contact Us</h2>
-          <p>
-            Send a message to the MY HUB team. Submitting this form opens your default email
-            application.
-          </p>
-          <form
-            className="space-y-4"
-            onSubmit={(event) => {
-              event.preventDefault();
-              const formData = new FormData(event.currentTarget);
-              const name = String(formData.get('name') ?? '').trim();
-              const email = String(formData.get('email') ?? '').trim();
-              const message = String(formData.get('message') ?? '').trim();
-              const subject = encodeURIComponent(`MY HUB Contact Form - ${name}`);
-              const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
-              window.location.href = `mailto:${contactEmail}?subject=${subject}&body=${body}`;
-            }}
-          >
-            <div className="space-y-2">
-              <label htmlFor="privacy-contact-name" className="block text-sm font-medium text-foreground">
-                Name
-              </label>
-              <input
-                id="privacy-contact-name"
-                name="name"
-                type="text"
-                autoComplete="name"
-                required
-                className="w-full rounded-lg border border-border bg-background px-3 py-2 text-foreground"
-              />
-            </div>
-            <div className="space-y-2">
-              <label htmlFor="privacy-contact-email" className="block text-sm font-medium text-foreground">
-                Email
-              </label>
-              <input
-                id="privacy-contact-email"
-                name="email"
-                type="email"
-                autoComplete="email"
-                required
-                className="w-full rounded-lg border border-border bg-background px-3 py-2 text-foreground"
-              />
-            </div>
-            <div className="space-y-2">
-              <label htmlFor="privacy-contact-message" className="block text-sm font-medium text-foreground">
-                Message
-              </label>
-              <textarea
-                id="privacy-contact-message"
-                name="message"
-                rows={5}
-                required
-                className="w-full rounded-lg border border-border bg-background px-3 py-2 text-foreground"
-              />
-            </div>
-            <button type="submit" className="btn-primary rounded-lg px-5 py-3 font-bold">
-              Send Message
-            </button>
-          </form>
         </section>
 
         <p>
