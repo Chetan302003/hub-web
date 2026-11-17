@@ -13,6 +13,8 @@ import Leaderboard from '@/pages/Leaderboard';
 import CalendarPage from '@/pages/Calendar';
 import Fleet from '@/pages/Fleet';
 import MyStats from '@/pages/MyStats';
+import TermsOfService from '@/pages/TermsOfService';
+import PrivacyPolicy from '@/pages/PrivacyPolicy';
 
 const queryClient = new QueryClient();
 
@@ -39,6 +41,8 @@ function AnimatedRoutes() {
 
         {/* Public hub routes */}
         <Route element={<AppLayout />}>
+          <Route path="/terms-of-service" element={<TermsOfService />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/leaderboard" element={<Leaderboard />} />
           <Route path="/calendar" element={<CalendarPage />} />
