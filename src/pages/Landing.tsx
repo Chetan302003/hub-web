@@ -125,7 +125,7 @@ export default function Landing() {
           </div>
 
           <h1 className="text-5xl sm:text-6xl lg:text-8xl font-heading font-black tracking-tight mb-8 leading-[0.9]">
-            <span className="text-white">METH VTC</span><br />
+            <span className="text-white">MY</span><br />
             <span className="text-gradient">HUB</span>
           </h1>
 
@@ -285,7 +285,7 @@ export default function Landing() {
           <Truck size={32} className="text-[#70eeff]/40" />
           <div className="hud-line" />
           <p className="text-[10px] text-muted-foreground uppercase font-black tracking-[0.5em]">
-            © 2026 METH NETWORK PROTOCOL / KEEP ON TRUCKING
+            © 2026 MY HUB NETWORK PROTOCOL / KEEP ON TRUCKING
           </p>
         </div>
       </footer>

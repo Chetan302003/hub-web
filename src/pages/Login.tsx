@@ -90,7 +90,7 @@ export default function Login() {
                 {isSignUp ? 'REGISTER_USER' : 'INIT_AUTH'}
               </h1>
               <p className="text-muted-foreground text-[10px] font-bold uppercase tracking-widest mt-2">
-                Meth Network Protocol / v2.0
+                MY HUB Network Protocol / v2.0
               </p>
             </div>
 
@@ -208,6 +208,15 @@ export default function Login() {
                 )}
               </button>
             </form>
+            <p className="mt-4 text-center text-xs text-muted-foreground">
+              Need help?{' '}
+              <a
+                href="mailto:myhub@chetanmahajan.site"
+                className="text-[#70eeff] hover:underline"
+              >
+                myhub@chetanmahajan.site
+              </a>
+            </p>
           </div>
 
           <div className="p-6 bg-black/20 border-t border-white/5 text-center">

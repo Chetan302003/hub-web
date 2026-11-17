@@ -47,13 +47,13 @@ export function Navbar() {
                 <div className="absolute inset-0 bg-[#70eeff]/20 blur-md rounded-full scale-0 group-hover:scale-100 transition-transform" />
                 <img
                     src="/favicon.ico"
-                    alt="Meth VTC"
+                    alt="MY HUB"
                     className="w-10 h-10 rounded-full border border-white/10 relative z-10"
                 />
             </div>
             <div className="flex flex-col">
                 <span className="font-heading font-bold text-[22px] text-foreground group-hover:text-primary transition-colors">
-                    METH_HUB
+                    MY HUB
                 </span>
                 <span className="text-[8px] font-bold text-primary uppercase -mt-1 hidden sm:block">
                     Network_Protocol
