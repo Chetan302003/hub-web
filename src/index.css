@@ -303,6 +303,54 @@ input::placeholder, textarea::placeholder {
   opacity: 1;
 }
 
+.policy-content section h2 {
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  padding-bottom: .5rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--border) 50%, transparent);
+  color: var(--text);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 2rem;
+}
+
+.policy-content section h3 {
+  margin-top: 1.5rem;
+  margin-bottom: .5rem;
+  color: var(--text);
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.75rem;
+}
+
+.policy-content section p {
+  margin-bottom: 1rem;
+}
+
+.policy-content section ul {
+  margin-bottom: 1.5rem;
+}
+
+.policy-content section > div h3 {
+  margin-top: 0;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+.policy-content > div:last-child {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid color-mix(in srgb, var(--border) 50%, transparent);
+  text-align: center;
+}
+
+.policy-content > div:last-child p {
+  margin-bottom: 0;
+  color: var(--text);
+  font-weight: 600;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-pulse-dot, .animate-pulse-glow, .live-indicator {
     animation: none !important;

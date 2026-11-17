@@ -1,19 +1,14 @@
+import { PolicyPageLayout } from '@/components/layout/PolicyPageLayout';
+
 const contactEmail = 'myhub@chetanmahajan.site';
 
 export default function PrivacyPolicy() {
   return (
-    <article className="mx-auto max-w-4xl space-y-8 py-8 text-foreground">
-      <header className="space-y-3">
-        <h1 className="font-heading text-3xl font-black tracking-tight sm:text-4xl">
-          MY HUB Privacy Policy
-        </h1>
-        <div className="flex w-fit max-w-full gap-x-4 overflow-x-auto whitespace-nowrap text-sm text-muted-foreground">
-          <p>Effective Date: 15/02/2026</p>
-          <p>Last Updated: 16/02/2026</p>
-        </div>
-      </header>
-
-      <div className="space-y-6 text-sm leading-7 text-muted-foreground sm:text-base">
+    <PolicyPageLayout
+      title="MY HUB Privacy Policy"
+      effectiveDate="15/02/2026"
+      lastUpdated="16/02/2026"
+    >
         <p>
           MY HUB ("we," "our," or "us") respects your privacy and is committed to protecting any
           personal information we collect. This Privacy Policy explains what information we collect,
@@ -201,39 +196,47 @@ export default function PrivacyPolicy() {
             If you have any questions, concerns, or data requests regarding this Privacy Policy,
             please contact MY HUB Leadership through our official Discord server.
           </p>
-          <p>
-            Reach Out To Us
-          </p>
-          <ul className="list-disc space-y-1 pl-6">
-            <li>
-              Website: Contact the Management Team using the email below.
-            </li>
-            <li>
-              Discord:{' '}
-              <a
-                href="https://discord.gg/yZrEbynww"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary underline"
-              >
-                https://discord.gg/yZrEbynww
-              </a>
-            </li>
-            <li>
-              Email: Send an email to{' '}
-              <a href={`mailto:${contactEmail}`} className="text-primary underline">
-                {contactEmail}
-              </a>
-              .
-            </li>
-          </ul>
+          <div className="rounded-xl border border-border/50 bg-bg/50 p-6">
+            <h3 className="mb-3 font-heading text-lg font-semibold text-foreground">Reach Out To Us</h3>
+            <ul className="space-y-3">
+              <li className="flex items-start gap-2">
+                <span className="font-bold text-primary">•</span>
+                <span>Website: Contact the Management Team using the email below.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="font-bold text-primary">•</span>
+                <span>
+                  Discord:{' '}
+                  <a
+                    href="https://discord.gg/yZrEbynww"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary hover:underline"
+                  >
+                    https://discord.gg/yZrEbynww
+                  </a>
+                </span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="font-bold text-primary">•</span>
+                <span>
+                  Email: Send an email to{' '}
+                  <a href={`mailto:${contactEmail}`} className="text-primary hover:underline">
+                    {contactEmail}
+                  </a>
+                  .
+                </span>
+              </li>
+            </ul>
+          </div>
         </section>
 
-        <p>
-          By participating in MY HUB, you acknowledge that you have read, understood, and agreed to
-          this Privacy Policy.
-        </p>
-      </div>
-    </article>
+        <div className="mt-12 border-t border-border/50 pt-8 text-center">
+          <p className="font-semibold text-foreground">
+            By participating in MY HUB, you acknowledge that you have read, understood, and agreed
+            to this Privacy Policy.
+          </p>
+        </div>
+    </PolicyPageLayout>
   );
 }
