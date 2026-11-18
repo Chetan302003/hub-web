@@ -5,7 +5,7 @@
       "destination": "https://api.truckersmp.com/v2/:path*"
     },
     {
-      "source": "/(.*)",
+      "source": "/((?!api/).*)",
       "destination": "/index.html"
     }
   ]

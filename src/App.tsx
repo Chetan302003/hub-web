@@ -7,7 +7,6 @@ import { ProtectedRoute } from '@/components/layout/ProtectedRoute';
 import { Toaster } from 'sonner';
 import { AnimatePresence } from 'framer-motion';
 import { Analytics } from '@vercel/analytics/react';
-import { SpeedInsights } from '@vercel/speed-insights/react';
 import Landing from '@/pages/Landing';
 import Login from '@/pages/Login';
 import Dashboard from '@/pages/Dashboard';
@@ -17,6 +16,7 @@ import Fleet from '@/pages/Fleet';
 import MyStats from '@/pages/MyStats';
 import TermsOfService from '@/pages/TermsOfService';
 import PrivacyPolicy from '@/pages/PrivacyPolicy';
+import Contact from '@/pages/Contact';
 
 const queryClient = new QueryClient();
 
@@ -43,6 +43,8 @@ function AnimatedRoutes() {
 
         {/* Public hub routes */}
         <Route element={<AppLayout />}>
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/contact-us" element={<Contact />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/dashboard" element={<Dashboard />} />
@@ -76,7 +78,6 @@ function App() {
           <SiteFooter />
         </BrowserRouter>
         <Analytics />
-        <SpeedInsights />
       </AuthProvider>
     </QueryClientProvider>
   );

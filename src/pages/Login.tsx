@@ -210,12 +210,12 @@ export default function Login() {
             </form>
             <p className="mt-4 text-center text-xs text-muted-foreground">
               Need help?{' '}
-              <a
-                href="mailto:myhub@chetanmahajan.site"
+              <Link
+                to="/contact"
                 className="text-[#70eeff] hover:underline"
               >
-                myhub@chetanmahajan.site
-              </a>
+                Contact Us
+              </Link>
             </p>
           </div>
 

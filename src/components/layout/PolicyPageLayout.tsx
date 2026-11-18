@@ -27,8 +27,11 @@ export function PolicyPageLayout({
           <h1 className="mb-4 font-heading text-4xl font-bold text-foreground md:text-5xl">
             {title}
           </h1>
-          <p className="mb-2 font-semibold text-primary">Effective Date: {effectiveDate}</p>
-          <p className="font-semibold text-primary">Last Updated: {lastUpdated}</p>
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-1 font-semibold text-primary">
+            <span>Effective Date: {effectiveDate}</span>
+            <span aria-hidden="true" className="text-primary/40">•</span>
+            <span>Last Updated: {lastUpdated}</span>
+          </div>
         </header>
         <div className="policy-content space-y-8 leading-relaxed text-muted-foreground">
           {children}

@@ -13,7 +13,7 @@ import {
   X,
   User,
   ChevronDown,
-  Zap
+  Zap,
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -44,20 +44,20 @@ export function Navbar() {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 shrink-0 group">
             <div className="relative">
-                <div className="absolute inset-0 bg-[#70eeff]/20 blur-md rounded-full scale-0 group-hover:scale-100 transition-transform" />
-                <img
-                    src="/favicon.ico"
-                    alt="MY HUB"
-                    className="w-10 h-10 rounded-full border border-white/10 relative z-10"
-                />
+              <div className="absolute inset-0 bg-[#70eeff]/20 blur-md rounded-full scale-0 group-hover:scale-100 transition-transform" />
+              <img
+                src="/favicon.ico"
+                alt="MY HUB"
+                className="w-10 h-10 rounded-full border border-white/10 relative z-10"
+              />
             </div>
             <div className="flex flex-col">
-                <span className="font-heading font-bold text-[22px] text-foreground group-hover:text-primary transition-colors">
-                    MY HUB
-                </span>
-                <span className="text-[8px] font-bold text-primary uppercase -mt-1 hidden sm:block">
-                    Network_Protocol
-                </span>
+              <span className="font-heading font-bold text-[22px] text-foreground group-hover:text-primary transition-colors">
+                MY HUB
+              </span>
+              <span className="text-[8px] font-bold text-primary uppercase -mt-1 hidden sm:block">
+                Network_Protocol
+              </span>
             </div>
           </Link>
 
@@ -117,7 +117,7 @@ export function Navbar() {
                         <p className="text-sm font-heading font-bold text-foreground truncate">{profile?.username}</p>
                         <p className="text-[10px] text-muted-foreground font-medium truncate">{user.email}</p>
                       </div>
-                      
+
                       <button
                         onClick={handleSignOut}
                         className="w-full flex items-center gap-3 px-4 py-3 rounded-md text-sm font-semibold text-bad hover:bg-bad/10 transition-colors"
@@ -157,7 +157,7 @@ export function Navbar() {
 
         {/* Mobile nav */}
         {mobileOpen && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             className="md:hidden border-t border-border py-4 space-y-2"
