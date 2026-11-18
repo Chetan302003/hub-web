@@ -72,7 +72,6 @@ export default function Dashboard() {
         <div className="relative flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div className="space-y-1">
             <div className="flex items-center gap-2 text-[10px] font-black tracking-[0.4em] text-[#70eeff]/60 uppercase">
-              <span className="live-indicator" />
               {user ? 'Neural Link Established' : 'Public Fleet Overview'}
             </div>
             <h1 className="text-3xl md:text-5xl font-heading font-black tracking-tighter">
