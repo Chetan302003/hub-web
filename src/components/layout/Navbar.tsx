@@ -55,9 +55,6 @@ export function Navbar() {
               <span className="font-heading font-bold text-[22px] text-foreground group-hover:text-primary transition-colors">
                 MY HUB
               </span>
-              <span className="text-[8px] font-bold text-primary uppercase -mt-1 hidden sm:block">
-                Network_Protocol
-              </span>
             </div>
           </Link>
 
