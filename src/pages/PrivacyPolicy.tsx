@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 import { PolicyPageLayout } from '@/components/layout/PolicyPageLayout';
 
-const contactEmail = 'myhub@chetanmahajan.site';
+const contactEmail = 'myhub@combined.top';
+const ownerComp = 'myhub@chetanmahajan.site';
 
 export default function PrivacyPolicy() {
   return (
@@ -313,6 +314,13 @@ export default function PrivacyPolicy() {
             Email: Send an email to{' '}
             <a href={`mailto:${contactEmail}`} className="text-primary underline">
               {contactEmail}
+            </a>
+            .
+          </li>
+             <li>
+            company owner: Send an email to{' '}
+            <a href={`mailto:${ownerComp}`} className="text-primary underline">
+              {ownerComp}
             </a>
             .
           </li>
