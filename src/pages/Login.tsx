@@ -3,7 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '@/hooks/useAuth';
 import { GlassCard } from '@/components/layout/GlassCard';
 import { motion } from 'framer-motion';
-import { LogIn, UserPlus, Mail, Lock, Eye, EyeOff, User, Hash, ArrowLeft, Truck, AlertCircle, ShieldCheck } from 'lucide-react';
+import { LogIn, UserPlus, Mail, Lock, Eye, EyeOff, User, Hash, ArrowLeft, Truck, AlertCircle, ShieldCheck, Info  } from 'lucide-react';
 
 export default function Login() {
   const { signIn, signUp, user } = useAuth();
@@ -93,7 +93,30 @@ export default function Login() {
                 MY HUB Network Protocol / v2.0
               </p>
             </div>
+{!isSignUp && (
+  <motion.div
+    initial={{ opacity: 0, y: -5 }}
+    animate={{ opacity: 1, y: 0 }}
+    className="flex items-start gap-3 p-4 rounded-xl bg-[#70eeff]/5 border border-[#70eeff]/20 mb-6"
+  >
+    <Info
+      size={18}
+      className="text-[#70eeff] shrink-0 mt-0.5"
+    />
 
+    <div className="space-y-1">
+      <p className="text-xs font-bold text-[#70eeff]">
+        Existing Hub Users
+      </p>
+
+      <p className="text-xs text-muted-foreground leading-relaxed">
+        Please log in using the same email address and
+        password as your existing Hub account.
+        There is no need to create a new account.
+      </p>
+    </div>
+  </motion.div>
+)}
             {error && (
               <motion.div 
                 initial={{ opacity: 0, x: -10 }} 
@@ -224,7 +247,7 @@ export default function Login() {
               onClick={() => { setIsSignUp(!isSignUp); setError(''); setSuccess(''); }}
               className="text-[10px] font-black text-muted-foreground hover:text-[#70eeff] transition-all uppercase tracking-widest"
             >
-              {isSignUp ? 'EX_SIGNAL_RECORD? SWITCH_TO_LOGIN' : "NO_RECORD_FOUND? INITIALIZE_NEW_IDENTITY"}
+              {isSignUp ? 'EX_SIGNAL_RECORD? SWITCH_TO_LOGIN' : "NO_RECORD_FOUND? signup "}
             </button>
           </div>
         </GlassCard>
