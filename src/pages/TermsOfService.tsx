@@ -366,7 +366,7 @@ export default function TermsOfService() {
               </span>
             </li>
           </ul>
-        </div>ownerComp
+        </div>
       </section>
 
       <div className="mt-12 border-t border-border/50 pt-8 text-center">
