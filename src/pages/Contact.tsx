@@ -22,7 +22,7 @@ import {
 import { Link } from 'react-router-dom';
 import { toast } from 'sonner';
 
-const RECIPIENT_EMAIL = 'myhub@chetanmahajan.site';
+const RECIPIENT_EMAIL = 'myhub@combined.top';
 
 const SUBJECT_PRESETS = [
   'General Inquiry',
@@ -114,7 +114,7 @@ export default function Contact() {
       console.error('Contact form submission error:', err);
       setError(
         err.message ||
-        'Unable to reach server. You can write directly to myhub@chetanmahajan.site.'
+        'Unable to reach server. You can write directly to myhub@combined.top .'
       );
       toast.error('Transmission failed.');
     } finally {
