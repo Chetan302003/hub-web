@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 import { PolicyPageLayout } from '@/components/layout/PolicyPageLayout';
 
-const contactEmail = 'myhub@chetanmahajan.site';
+const contactEmail = 'myhub@combined.top';
+const ownerComp = 'myhub@chetanmahajan.site';
 
 export default function TermsOfService() {
   return (
@@ -354,8 +355,18 @@ export default function TermsOfService() {
                 .
               </span>
             </li>
+             <li className="flex items-start gap-2">
+              <span className="font-bold text-primary">•</span>
+              <span>
+                Email: Send an email to{' '}
+                <a href={`mailto:${ownerComp}`} className="text-primary hover:underline">
+                  {ownerComp}
+                </a>
+                .
+              </span>
+            </li>
           </ul>
-        </div>
+        </div>ownerComp
       </section>
 
       <div className="mt-12 border-t border-border/50 pt-8 text-center">
