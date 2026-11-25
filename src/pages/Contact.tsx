@@ -509,15 +509,15 @@ export default function Contact() {
               <ul className="space-y-2 text-xs text-muted-foreground">
                 <li className="flex items-center justify-between border-b border-white/5 pb-2">
                   <span>General inquiries</span>
-                  <span className="font-mono font-bold text-foreground">24-48 hours</span>
+                  <span className="font-mono font-bold text-foreground">4-8 hours</span>
                 </li>
                 <li className="flex items-center justify-between border-b border-white/5 pb-2">
                   <span>Bug & telemetry issues</span>
-                  <span className="font-mono font-bold text-foreground">12-24 hours</span>
+                  <span className="font-mono font-bold text-foreground">2-4 hours</span>
                 </li>
                 <li className="flex items-center justify-between">
                   <span>With Discord ID</span>
-                  <span className="font-mono font-bold text-purple-400">&lt; 12 hours</span>
+                  <span className="font-mono font-bold text-purple-400">&lt; 4 hours</span>
                 </li>
               </ul>
             </GlassCard>
